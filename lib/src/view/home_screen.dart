@@ -63,21 +63,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         final Order data = box.getAt(index)!;
                         return DataRecord(
                           data: data,
-                          onTapAction: () {},
-                          onLongTapAction: () {},
-                          // onTapAction: () => Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) =>
-                          //         DetailScreen(location: data),
-                          //   ),
-                          // ),
-                          // onLongTapAction: () {
-                          //   dataProvider.deleteRecord(index);
-                          //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          //     content: Text("Đã xóa dữ liệu tại ${data.title}"),
-                          //   ));
-                          // },
                         );
                       },
                       separatorBuilder: (context, index) {

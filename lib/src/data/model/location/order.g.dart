@@ -17,7 +17,7 @@ class OrderAdapter extends TypeAdapter<Order> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Order(
-      status: fields[0] as int,
+      status: fields[0] as double,
       id: fields[1] as int,
       isScream: fields[3] as bool,
       isChocolate: fields[4] as bool,

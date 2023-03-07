@@ -5,20 +5,14 @@ class DataRecord extends StatelessWidget {
   const DataRecord({
     Key? key,
     required this.data,
-    required this.onTapAction,
-    this.onLongTapAction,
   }) : super(key: key);
 
   final Order data;
-  final VoidCallback onTapAction;
-  final VoidCallback? onLongTapAction;
 
   @override
   Widget build(BuildContext context) {
     return Material(
       child: InkWell(
-        onTap: onTapAction,
-        onLongPress: onLongTapAction,
         child: Column(
           children: [
             Row(
@@ -27,20 +21,13 @@ class DataRecord extends StatelessWidget {
                   flex: 2,
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
+                        const Text('Order Sumary'),
+                        Text('isScream: ${data.isScream}'),
+                        Text('isChocolate: ${data.isChocolate}'),
+                        Text('quantity: $data.quantity'),
                         Text(
-                          "Title:",
-                          style: TextStyle(fontSize: 15),
-                        ),
-                        Text(
-                          "Desc:",
-                          style: TextStyle(fontSize: 15),
-                        ),
-                        Text(
-                          "Timestamp:",
-                          style: TextStyle(fontSize: 15),
-                        ),
+                            'Total: ${data.quantity * data.price + (data.isScream ? 0.5 : 0) + (data.isChocolate ? 1 : 0)}'),
                       ]),
                 ),
                 Expanded(

@@ -46,12 +46,29 @@ class _AddOrderPageState extends State<AddOrderPage> {
                     (order.isChocolate ? 1 : 0)),
                 quantity: order.quantity,
                 status: 1,
+                isCancel: true,
+              ));
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.cancel),
+          ),
+          IconButton(
+            onPressed: () {
+              dataProvider.addOrder(Order(
+                id: 1,
+                isChocolate: order.isChocolate,
+                isScream: order.isScream,
+                price: (order.quantity * order.price +
+                    (order.isScream ? 0.5 : 0) +
+                    (order.isChocolate ? 1 : 0)),
+                quantity: order.quantity,
+                status: 1,
                 isCancel: false,
               ));
               Navigator.pop(context);
             },
             icon: const Icon(Icons.save),
-          ),
+          )
         ],
       ),
       body: Column(

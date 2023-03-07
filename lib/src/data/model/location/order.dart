@@ -6,7 +6,7 @@ part 'order.g.dart';
 @HiveType(typeId: 1)
 class Order {
   @HiveField(0)
-  int status;
+  double status;
 
   @HiveField(1)
   int id;

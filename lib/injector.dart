@@ -1,7 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart';
-import 'package:nguyenminhdung/src/data/datasource/api_datasource.dart';
 import 'package:nguyenminhdung/src/data/model/location/order.dart';
 import 'package:nguyenminhdung/src/data/repository/data_repository.dart';
 import 'package:nguyenminhdung/src/logic/data_provider.dart';
@@ -16,10 +15,7 @@ Future<void> initDependences() async {
 
   injector
     ..registerLazySingleton<Client>(() => Client())
-    ..registerLazySingleton<ApiDatasource>(
-        () => ApiDatasource(http: injector()))
-    ..registerLazySingleton<DataRepository>(
-        () => DataRepository(apiDatasource: injector()))
+    ..registerLazySingleton<DataRepository>(() => DataRepository())
     ..registerFactory<DataProvider>(
         () => DataProvider(dataRepository: injector()));
 }
